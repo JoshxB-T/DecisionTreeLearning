@@ -23,7 +23,7 @@ def print_tree(node, attrs_names, indent):
 
     for val, subtree in node.branches.items():
         print(indent + f" {attr_label} ({val})")
-        print_tree(subtree, attrs_names, indent + "--") # Recursive call
+        print_tree(subtree, attrs_names, indent + "  ") # Recursive call
 
 def entropy(exs):
     if not exs:
@@ -118,7 +118,7 @@ def parse_data(data):
     return parsed
 
 def open_file():
-    with open("restaurant.csv", "r", encoding="utf-8") as file:
+    with open("restaurant.csv", "r") as file:
         data = file.read()
     parsed_data = parse_data(data)
 
@@ -138,7 +138,7 @@ def main():
 
     # Recursively print the tree
     print("Decision tree learned:")
-    print_tree(tree, attrs_names, "|--")
+    print_tree(tree, attrs_names, "")
 
 if __name__ == "__main__":
     main()
