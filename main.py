@@ -13,7 +13,7 @@ class DecisionNode:
 def print_tree(node, attrs_names, indent):
     # Base case to print leaf nodes 
     if node.is_leaf:
-        print(indent + f"-> {node.label}")
+        print(indent + f"> {node.label}")
         return
     
     if attrs_names:
@@ -79,7 +79,7 @@ def information_gain(exs, attr_index):
 
 def choose_best_attribute(exs, attrs):
     best_attr = None
-    best_gain = -float('inf')
+    best_gain = float('-inf')
 
     for a in attrs:
         gain = information_gain(exs, a)
